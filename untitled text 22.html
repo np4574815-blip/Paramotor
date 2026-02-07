@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EXTREME | Luxury Sports Experience</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,255,0.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0,100,255,0.15), transparent 40%),
+    linear-gradient(180deg,#000,#05070f);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* FILM GRAIN */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.05;
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* FLOATING LIGHT ORBS */
+.orbs{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-2;
+}
+.orbs::before,
+.orbs::after{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:0.35;
+  animation:float 14s ease-in-out infinite alternate;
+}
+.orbs::before{
+  background:#00ffff;
+  top:10%;
+  left:8%;
+}
+.orbs::after{
+  background:#0066ff;
+  bottom:12%;
+  right:10%;
+  animation-delay:3s;
+}
+@keyframes float{
+  to{ transform:translate(120px,80px); }
+}
+
+/* CURSOR GLOW */
+.cursor{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  background:radial-gradient(circle,rgba(0,255,255,0.6),transparent 60%);
+  transform:translate(-50%,-50%);
+  z-index:999;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+.hero video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.3) contrast(1.2);
+}
+.hero .content{
+  position:relative;
+  z-index:2;
+  animation:heroFloat 6s ease-in-out infinite;
+}
+@keyframes heroFloat{
+  50%{ transform:translateY(-12px); }
+}
+.hero h1{
+  font-size:4rem;
+  letter-spacing:4px;
+}
+.hero p{
+  opacity:0.75;
+  margin-top:10px;
+}
+
+/* SECTIONS */
+section{
+  padding:90px 8%;
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(18px);
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* SCROLL REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.card{
+  position:relative;
+  height:380px;
+  border-radius:20px;
+  overflow:hidden;
+  background:#111;
+  transition:0.4s;
+  perspective:1000px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.8),
+    inset 0 0 30px rgba(0,255,255,0.05);
+}
+.card video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.6);
+}
+.card:hover{
+  transform:scale(1.06) rotateX(6deg) rotateY(-6deg);
+}
+.card span{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  font-size:1.4rem;
+}
+
+/* CONTACT */
+.contact{
+  max-width:500px;
+  margin:auto;
+  background:rgba(0,0,0,0.6);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.7);
+}
+.contact h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+.contact input,
+.contact textarea{
+  width:100%;
+  margin:10px 0;
+  padding:12px;
+  border:none;
+  outline:none;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+}
+.contact button{
+  width:100%;
+  padding:14px;
+  background:#00ffff;
+  border:none;
+  border-radius:30px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+}
+.sent{
+  text-align:center;
+  margin-top:15px;
+  color:#00ff88;
+  display:none;
+}
+
+/* TEXT SELECTION */
+::selection{
+  background:#00ffff;
+  color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="orbs"></div>
+<div class="cursor"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <video autoplay muted loop>
+    <source src="https://cdn.coverr.co/videos/coverr-surfing-at-sunset-6574/1080p.mp4">
+  </video>
+  <div class="content">
+    <h1>EXTREME SPORTS</h1>
+    <p>Luxury · Power · Adrenaline</p>
+  </div>
+</div>
+
+<!-- SPORTS -->
+<section class="reveal">
+<h2>Our Experiences</h2><br>
+<div class="grid">
+  <div class="card">
+    <video src="https://cdn.coverr.co/videos/coverr-jet-skiing-1616/1080p.mp4" autoplay loop muted></video>
+    <span>Jet Ski</span>
+  </div>
+  <div class="card">
+    <video src="https://cdn.coverr.co/videos/coverr-paragliding-over-the-sea-7341/1080p.mp4" autoplay loop muted></video>
+    <span>Parachute</span>
+  </div>
+  <div class="card">
+    <video src="https://cdn.coverr.co/videos/coverr-wakeboarding-on-the-lake-3883/1080p.mp4" autoplay loop muted></video>
+    <span>Water Sports</span>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="reveal">
+<div class="contact">
+  <h2>Contact Us</h2>
+  <input id="name" placeholder="Your Name">
+  <input id="email" placeholder="Your Email">
+  <textarea id="msg" rows="4" placeholder="Message"></textarea>
+  <button id="btn" onclick="send()">Send Inquiry</button>
+  <div class="sent" id="sent">✔ Message Sent Successfully</div>
+</div>
+</section>
+
+<script>
+/* CURSOR */
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
+});
+
+/* CURSOR INTERACTION */
+document.querySelectorAll("button,.card").forEach(el=>{
+  el.addEventListener("mouseenter",()=>{
+    cursor.style.transform="translate(-50%,-50%) scale(2)";
+  });
+  el.addEventListener("mouseleave",()=>{
+    cursor.style.transform="translate(-50%,-50%) scale(1)";
+  });
+});
+
+/* SCROLL REVEAL */
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(r=>{
+    if(r.getBoundingClientRect().top < window.innerHeight-100){
+      r.classList.add("active");
+    }
+  });
+  document.querySelector(".orbs").style.transform=
+    `translateY(${window.scrollY*0.08}px)`;
+});
+
+/* CONTACT */
+function send(){
+  if(!name.value||!email.value||!msg.value){
+    alert("Fill all fields");
+    return;
+  }
+  const btn=document.getElementById("btn");
+  btn.innerText="Sending...";
+  setTimeout(()=>{
+    btn.innerText="Sent ✔";
+    btn.style.background="#00ff88";
+    document.getElementById("sent").style.display="block";
+  },1200);
+}
+</script>
+
+</body>
+</html>
